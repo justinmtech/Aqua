@@ -10,3 +10,4 @@ A collection of Bukkit/Spigot utilities to help you stay in flow, save time and 
 - SQLConnector - Database boilerplate code for MySQL databases and connections
 - SQLQueries - An enum class with SQL query notes and basic examples. Simply use "SQLQueries." to then show query syntax.
 - PlayerUtils - Give ItemStack to player or drop naturally if inv is full with one liner.
+- StringSearch - Given an input string and set of other strings, return similar or matching strings.
