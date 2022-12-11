@@ -9,7 +9,7 @@ public class Color {
         return ChatColor.translateAlternateColorCodes('&', string);
     }
 
-    public static String apply(String hex, String string) {
+    public static String apply(String string, String hex) {
         if (string == null) return "";
         if (hex == null) return string;
         return net.md_5.bungee.api.ChatColor.of(hex) + string;
