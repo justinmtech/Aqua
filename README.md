@@ -1,5 +1,5 @@
 # Aqua
-A collection of Bukkit/Spigot utilities to improve workflow and readability.
+A collection of Bukkit/Spigot utilities to help you stay in flow, save time and reduce clutter.
 
 # Utility Classes
 - Color - Fetch traditional or hex colors without "translateAlternateColorCodes" (assume & char)
