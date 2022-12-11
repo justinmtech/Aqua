@@ -1,6 +1,5 @@
 package com.justinmtech.aqua.item;
 
-import com.justinmtech.aqua.persistence.SQLQueries;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -8,34 +7,73 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Build custom ItemStack with one-liners. Return AIR if there's an error or null object.
+ * Materials passed can be either Bukkit Materials or Material ID strings
+ */
 public class ItemFactory {
 
-    //Build an ItemStack from Material and display
+    /**
+     * @param material Bukkit Material or material String ID
+     * @param display Display name
+     * @return ItemStack (AIR if error)
+     */
     public static ItemStack build(Object material, String display) {
         return buildItem(material, 1, display, 0, null, null);
     }
 
-    //Build an ItemStack from Material, amount and display
+
+    /**
+     * @param material Bukkit Material or material String ID
+     * @param amount Item amount
+     * @param display Display name
+     * @return ItemStack (AIR if error)
+     */
     public static ItemStack build(Object material, int amount, String display) {
         return buildItem(material, amount, display, 0, null, null);
     }
 
-    //Build an ItemStack from Material, display, and lores
+
+    /**
+     * @param material Bukkit Material or material String ID
+     * @param display Display name
+     * @param lore Add multiple String parameters for multiple lines
+     * @return ItemStack (AIR if error)
+     */
     public static ItemStack build(Object material, String display, String... lore) {
         return buildItem(material, 1, display, 0, lore);
     }
 
-    //Build an ItemStack from Material, amount, display and customModelData
+    /**
+     * @param material Bukkit Material or material String ID
+     * @param amount Item amount
+     * @param display Display name
+     * @param customModelData Model data
+     * @return ItemStack (AIR if error)
+     */
     public static ItemStack build(Object material, int amount, String display, int customModelData) {
         return buildItem(material, amount, display, customModelData, null, null);
     }
 
-    //Build an ItemStack from Material, amount, display and lores
+    /**
+     * @param material Bukkit Material or material String ID
+     * @param amount Item amount
+     * @param display Display name
+     * @param lore Add multiple String parameters for multiple lines
+     * @return ItemStack (AIR if error)
+     */
     public static ItemStack build(Object material, int amount, String display, String... lore) {
         return buildItem(material, amount, display, 0, lore);
     }
 
-    //Build an ItemStack from Material, amount, display, customModelData and lores
+    /**
+     * @param material Bukkit Material or material String ID
+     * @param amount Item amount
+     * @param display Display name
+     * @param customModelData Model data
+     * @param lore Add multiple String parameters for multiple lines
+     * @return ItemStack (AIR if error)
+     */
     public static ItemStack build(Object material, int amount, String display, int customModelData, String... lore) {
         return buildItem(material, amount, display, customModelData, lore);
     }

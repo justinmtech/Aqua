@@ -1,17 +1,18 @@
 package com.justinmtech.aqua.persistence;
 
-/*
-Useful if you forget simple query syntax and want to avoid googling
-Replace "equals" with =
-Parameters are always wrapped with ()'s
 
-Example Queries
-CREATE TABLE IF NOT EXISTS myTable(uuid VARCHAR(48) NOT NULL PRIMARY KEY, level INT NOT NULL DEFAULT 0);
-INSERT INTO myTable VALUES (?, ?);
-DELETE FROM myTable WHERE uuid = ?;
-UPDATE myTable SET (uuid, level) VALUES (?, ?)
-SELECT uuid, level FROM myTable WHERE uuid = ?;
- */
+/**
+ *Useful if you forget simple query syntax and want to avoid googling
+ * Replace "equals" with =
+ * Parameters are always wrapped with ()'s
+
+ * Example Queries
+ * CREATE TABLE IF NOT EXISTS myTable(uuid VARCHAR(48) NOT NULL PRIMARY KEY, level INT NOT NULL DEFAULT 0);
+ * INSERT INTO myTable VALUES (?, ?);
+ * DELETE FROM myTable WHERE uuid = ?;
+ * UPDATE myTable SET (uuid, level) VALUES (?, ?)
+ * SELECT uuid, level FROM myTable WHERE uuid = ?;
+ **/
 public enum SQLQueries {
     CREATE_TABLE_tableName_parameters,
     CREATE_TABLE_IF_NOT_EXISTS_tableName_parameters,

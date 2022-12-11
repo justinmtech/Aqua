@@ -5,10 +5,14 @@ import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
-//Store and modify bossbars
+/**
+ * Store and modify bossbars.
+ * Useful for handling bossbar notifications and progress bars.
+ */
 public class BossBarCache {
     final Map<UUID, BossBar> bossBars;
     final Map<UUID, Long> timeout;
@@ -18,19 +22,29 @@ public class BossBarCache {
         this.timeout = new HashMap<>();
     }
 
-    public void addBossBar(JavaPlugin plugin, UUID uuid, BossBar bossBar, double progress) {
+    /**
+     * Initialize bossbar with customizable progress
+     * @param plugin Plugin instance
+     * @param uuid Player ID
+     * @param bossBar Bossbar object
+     * @param progress Double from 0-1.0
+     */
+    public void addBossBar(@NotNull JavaPlugin plugin, @NotNull UUID uuid, @NotNull BossBar bossBar, double progress) {
         initializeBossBar(plugin, uuid, bossBar, progress);
     }
 
-    //Progress 1.0 (100%)
-    public void addBossBar(JavaPlugin plugin, UUID uuid, BossBar bossBar) {
+
+    /**
+     * Initialize bossbar with 100% progress
+     * @param plugin Plugin instance
+     * @param uuid Player ID
+     * @param bossBar Bossbar
+     */
+    public void addBossBar(@NotNull JavaPlugin plugin, @NotNull UUID uuid, @NotNull BossBar bossBar) {
         initializeBossBar(plugin, uuid, bossBar, 1.0);
     }
 
-    private void initializeBossBar(JavaPlugin plugin, UUID uuid, BossBar bossBar, double progress) {
-        if (plugin == null) return;
-        if (uuid == null) return;
-        if (bossBar == null) return;
+    private void initializeBossBar(@NotNull JavaPlugin plugin, @NotNull UUID uuid, @NotNull BossBar bossBar, double progress) {
         if (progress < 0) progress = 0;
         bossBar.setProgress(progress);
         Player player = Bukkit.getPlayer(uuid);
@@ -41,25 +55,41 @@ public class BossBarCache {
         removeBossBar(plugin, player);
     }
 
-    public BossBar getBossBar(UUID uuid) {
+    /**
+     * @param uuid Player ID
+     * @return BossBar
+     */
+    public BossBar getBossBar(@NotNull UUID uuid) {
         return bossBars.get(uuid);
     }
 
-    public void updateBossBar(JavaPlugin plugin, UUID uuid, float progress) {
+
+    /**
+     * Updates progress bar of a player's bossbar
+     * @param plugin Plugin instance
+     * @param uuid Player ID
+     * @param progress Progress (0-1.0)
+     */
+    public void updateBossBar(@NotNull JavaPlugin plugin, @NotNull UUID uuid, float progress) {
         bossBars.get(uuid).setProgress(progress);
         timeout.replace(uuid, System.currentTimeMillis());
-        removeBossBar(plugin, Bukkit.getPlayer(uuid));
+        Player player = Bukkit.getPlayer(uuid);
+        if (player == null) return;
+        removeBossBar(plugin, player);
     }
 
+    /**
+     * @return Map<UUID, BossBar>
+     */
     public Map<UUID, BossBar> getBossBars() {
         return bossBars;
     }
 
-    public void removePlayer(Player player) {
+    public void removePlayer(@NotNull Player player) {
         bossBars.get(player.getUniqueId()).removePlayer(player);
     }
 
-    private void removeBossBar(JavaPlugin plugin, Player player) {
+    private void removeBossBar(@NotNull JavaPlugin plugin, @NotNull Player player) {
         new BukkitRunnable() {
             @Override
             public void run() {

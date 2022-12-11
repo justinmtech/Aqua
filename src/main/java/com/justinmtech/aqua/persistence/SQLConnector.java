@@ -1,9 +1,15 @@
 package com.justinmtech.aqua.persistence;
 
+import com.justinmtech.aqua.item.ItemFactory;
+import org.jetbrains.annotations.Nullable;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Connect to MySQL database and store credentials.
+ */
 public class SQLConnector {
     private final String database;
     private final String host;
@@ -11,7 +17,7 @@ public class SQLConnector {
     private final String password;
     private final int port;
 
-    public SQLConnector(String database, String host, String username, String password, int port) throws SQLException {
+    public SQLConnector(@Nullable String database, @Nullable String host, @Nullable String username, @Nullable String password, int port) throws SQLException {
         if (database == null) throw new SQLException("The database is null.");
         if (host == null) throw new SQLException("The host is null.");
         if (username == null) throw new SQLException("The username is null.");
@@ -24,7 +30,10 @@ public class SQLConnector {
         this.port = port;
     }
 
-    //Get MySQL connection with auto reconnect and no SSL
+    /**
+     * @return SQL Connection
+     * @throws SQLException Throw SQLException
+     */
     public Connection getMySQLConnection() throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

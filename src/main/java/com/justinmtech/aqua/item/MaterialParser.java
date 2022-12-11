@@ -2,9 +2,15 @@ package com.justinmtech.aqua.item;
 
 import org.bukkit.Material;
 
+/**
+ * Obtain Material types from generic types
+ */
 public class MaterialParser {
 
-    //Parse material object as Material or String. Return AIR if null.
+    /**
+     * @param material Bukkit Material or String ID of material
+     * @return ItemStack (AIR if error or null)
+     */
     public static Material parse(Object material) {
         if (material == null) {
             return Material.AIR;
