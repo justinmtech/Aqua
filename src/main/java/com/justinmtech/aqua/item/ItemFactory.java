@@ -1,5 +1,6 @@
 package com.justinmtech.aqua.item;
 
+import com.justinmtech.aqua.chat.ChatUtils;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;

@@ -7,12 +7,12 @@ import org.bukkit.entity.Player;
 public class SoundUtils {
 
     //Play a sound for all online players
-    public static void playSoundOnlinePlayers(Sound sound, float vol, float pitch) {
+    public static void playForAll(Sound sound, float vol, float pitch) {
         playSound(sound, vol, pitch, null);
     }
 
     //Player a sound for all online players that have a permission
-    public static void playSoundOnlinePlayersWithPerm(Sound sound, float vol, float pitch, String permission) {
+    public static void playForAllWithPerm(Sound sound, float vol, float pitch, String permission) {
         playSound(sound, vol, pitch, permission);
     }
 
