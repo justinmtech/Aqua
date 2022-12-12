@@ -92,7 +92,7 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.justinmtech</groupId>
+            <groupId>com.GitHub.justinmtech</groupId>
             <artifactId>Minecord</artifactId>
             <version>1.1</version>
         </dependency>
