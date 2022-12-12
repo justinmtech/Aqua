@@ -1,0 +1,8 @@
+name: Aqua
+version: '${project.version}'
+main: com.justinmtech.aqua.Aqua
+api-version: 1.17
+prefix: Aqua
+authors: [ justinmtech ]
+description: Collection of Spigot/Bukkit helper utilities.
+website: https://justinmtech.com

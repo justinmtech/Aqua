@@ -1,10 +1,15 @@
 package com.justinmtech.aqua;
 
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Aqua extends JavaPlugin {
+public class Aqua extends JavaPlugin implements Listener {
 
-    public static void main(String[] args) {
+        @Override
+        public void onEnable() {
+        }
 
-    }
+        @Override
+        public void onDisable() {
+        }
 }
