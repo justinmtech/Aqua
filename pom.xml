@@ -7,7 +7,8 @@
     <groupId>com.justinmtech.aqua</groupId>
     <artifactId>Aqua</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
+    <!--<packaging>jar</packaging>-->
 
     <name>Aqua</name>
 
@@ -17,6 +18,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <url>https://justinmtech.com</url>
+
+    <scm>
+        <url>https://github.com/justinmtech/Aqua</url>
+        <connection>scm:git:git://github.com:justinmtech/Aqua.git</connection>
+        <developerConnection>scm:git:git@github.com:justinmtech/Aqua.git</developerConnection>
+    </scm>
 
     <build>
         <plugins>
@@ -62,6 +69,10 @@
         <repository>
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>mavenCentral</id>
+            <url>https://repo1.maven.org/maven2/</url>
         </repository>
         <repository>
             <id>jitpack.io</id>
