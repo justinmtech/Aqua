@@ -18,6 +18,14 @@
     </properties>
     <url>https://github.com/justinmtech/Aqua</url>
 
+    <developers>
+        <developer>
+            <name>justinmtech</name>
+            <email>git@justinmtech.com</email>
+            <url>https://github.com/justinmtech</url>
+        </developer>
+    </developers>
+
     <scm>
         <url>https://github.com/justinmtech/Aqua</url>
         <connection>scm:git:git://github.com:justinmtech/Aqua.git</connection>
