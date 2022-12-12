@@ -7,7 +7,6 @@
     <groupId>com.justinmtech.aqua</groupId>
     <artifactId>Aqua</artifactId>
     <version>1.0</version>
-    <packaging>pom</packaging>
     <!--<packaging>jar</packaging>-->
 
     <name>Aqua</name>
@@ -17,13 +16,18 @@
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <url>https://justinmtech.com</url>
+    <url>https://github.com/justinmtech/Aqua</url>
 
     <scm>
         <url>https://github.com/justinmtech/Aqua</url>
         <connection>scm:git:git://github.com:justinmtech/Aqua.git</connection>
         <developerConnection>scm:git:git@github.com:justinmtech/Aqua.git</developerConnection>
     </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/justinmtech/Aqua/issues</url>
+    </issueManagement>
 
     <build>
         <plugins>
@@ -91,13 +95,13 @@
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>23.0.0</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-text</artifactId>
             <version>1.10.0</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
