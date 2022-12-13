@@ -17,20 +17,36 @@ public class SQLConnector {
     private final String password;
     private final int port;
 
-    public SQLConnector(@Nullable String database, @Nullable String host, @Nullable String username, @Nullable String password, int port) throws SQLException {
+    /**
+     * @param database Database name
+     * @param host IP address of SQL server
+     * @param username Username of SQL server
+     * @param password Password of SQL server
+     * @param port Port of SQL server
+     * @throws SQLException Throw SQLException if encountered
+     */
+    public SQLConnector(@Nullable String database,
+                        @Nullable String host,
+                        @Nullable String username,
+                        @Nullable String password,
+                        int port) throws SQLException {
+
         if (database == null) throw new SQLException("The database is null.");
         if (host == null) throw new SQLException("The host is null.");
         if (username == null) throw new SQLException("The username is null.");
         if (password == null) throw new SQLException("The password is null.");
-        if (port == 0) throw new SQLException("The port is invalid.");
+        if (port < 1) throw new SQLException("The port is invalid.");
         this.database = database;
         this.host = host;
         this.username = username;
         this.password = password;
         this.port = port;
+        Connection connection = getMySQLConnection();
+        if (connection == null) throw new SQLException("Could not establish connection..");
     }
 
     /**
+     * Connect to MySQL through the DriverManager with autoReconnect set to true and SSL false.
      * @return SQL Connection
      * @throws SQLException Throw SQLException
      */
