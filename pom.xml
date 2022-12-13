@@ -91,10 +91,5 @@
             <version>1.10.0</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.GitHub.justinmtech</groupId>
-            <artifactId>Minecord</artifactId>
-            <version>1.1</version>
-        </dependency>
     </dependencies>
 </project>
