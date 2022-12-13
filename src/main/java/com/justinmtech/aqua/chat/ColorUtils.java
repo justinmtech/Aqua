@@ -6,8 +6,7 @@ import org.bukkit.ChatColor;
  * Get § with ALT + 2 + 1 (num pad numbers with num lock on)
  * Hex color resource = https://www.color-hex.com/
  */
-public class Color {
-
+public class ColorUtils {
 
     /**
      * @param string Plain text or string with '&' color codes
