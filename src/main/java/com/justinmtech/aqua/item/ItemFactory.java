@@ -33,7 +33,6 @@ public class ItemFactory {
         return buildItem(material, amount, display, null, null);
     }
 
-
     /**
      * @param material Bukkit Material or material String ID
      * @param display Display name
