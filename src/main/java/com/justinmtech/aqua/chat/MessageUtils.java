@@ -14,17 +14,6 @@ import org.jetbrains.annotations.NotNull;
 public class MessageUtils {
 
     /**
-     * Send player an ActionBar message.
-     * @param player Player
-     * @param text Plain text or legacy text color codes (§, &)
-     */
-    public static void sendActionBar(Player player, String text) {
-        if (player == null) return;
-        if (text == null) text = "";
-        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(text));
-    }
-
-    /**
      * @param player Player
      * @param message Message to send in chat
      * @param command Command to execute when clicked

@@ -19,7 +19,7 @@ public class ItemFactory {
      * @return ItemStack (AIR if error)
      */
     public static ItemStack build(Object material, String display) {
-        return buildItem(material, 1, display, 0, null, null);
+        return buildItem(material, 1, display, null, null);
     }
 
 
@@ -30,7 +30,7 @@ public class ItemFactory {
      * @return ItemStack (AIR if error)
      */
     public static ItemStack build(Object material, int amount, String display) {
-        return buildItem(material, amount, display, 0, null, null);
+        return buildItem(material, amount, display, null, null);
     }
 
 
@@ -41,18 +41,7 @@ public class ItemFactory {
      * @return ItemStack (AIR if error)
      */
     public static ItemStack build(Object material, String display, String... lore) {
-        return buildItem(material, 1, display, 0, lore);
-    }
-
-    /**
-     * @param material Bukkit Material or material String ID
-     * @param amount Item amount
-     * @param display Display name
-     * @param customModelData Model data
-     * @return ItemStack (AIR if error)
-     */
-    public static ItemStack build(Object material, int amount, String display, int customModelData) {
-        return buildItem(material, amount, display, customModelData, null, null);
+        return buildItem(material, 1, display, lore);
     }
 
     /**
@@ -63,22 +52,10 @@ public class ItemFactory {
      * @return ItemStack (AIR if error)
      */
     public static ItemStack build(Object material, int amount, String display, String... lore) {
-        return buildItem(material, amount, display, 0, lore);
+        return buildItem(material, amount, display, lore);
     }
 
-    /**
-     * @param material Bukkit Material or material String ID
-     * @param amount Item amount
-     * @param display Display name
-     * @param customModelData Model data
-     * @param lore Add multiple String parameters for multiple lines
-     * @return ItemStack (AIR if error)
-     */
-    public static ItemStack build(Object material, int amount, String display, int customModelData, String... lore) {
-        return buildItem(material, amount, display, customModelData, lore);
-    }
-
-    private static ItemStack buildItem(Object material, int amount, String display, int customModelData, String... lore) {
+    private static ItemStack buildItem(Object material, int amount, String display, String... lore) {
         material = MaterialParser.parse(material);
         if (display == null) display = "";
         ItemStack item = new ItemStack((Material) material);
@@ -87,7 +64,6 @@ public class ItemFactory {
         if (im == null) return new ItemStack(Material.BARRIER);
         im.setDisplayName(display);
         im.setLore(new ArrayList<>(Arrays.asList(lore)));
-        if (customModelData > 0) im.setCustomModelData(customModelData);
         item.setItemMeta(im);
         return item;
     }
