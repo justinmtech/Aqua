@@ -10,8 +10,8 @@ import org.jetbrains.annotations.NotNull;
 public class BlockUtils {
 
     /**
-     * @param location Block location
-     * @param material Bukkit Material or String material ID
+     * @param location Location to place the block at
+     * @param material Bukkit Material or String ID of Material
      */
     //Set block at location to material. Accepts Material object or String
     public static void set(@NotNull Location location, @NotNull Object material) {
@@ -24,8 +24,8 @@ public class BlockUtils {
     }
 
     /**
-     * @param from Current block location
-     * @param to Location to move it to
+     * @param from Location of block to move
+     * @param to Location to move the block to
      */
     public static void move(@NotNull Location from, @NotNull Location to) {
         Material material = from.getBlock().getType();
