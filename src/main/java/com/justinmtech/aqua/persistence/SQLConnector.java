@@ -1,6 +1,5 @@
 package com.justinmtech.aqua.persistence;
 
-import com.justinmtech.aqua.item.ItemFactory;
 import org.jetbrains.annotations.Nullable;
 
 import java.sql.Connection;
