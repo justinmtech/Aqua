@@ -15,6 +15,8 @@ public class SQLConnector {
     private final String username;
     private final String password;
     private final int port;
+    private boolean autoReconnect;
+    private boolean useSSL;
 
     /**
      * @param database Database name
@@ -50,13 +52,18 @@ public class SQLConnector {
      * @throws SQLException Throw SQLException
      */
     public Connection getMySQLConnection() throws SQLException {
+        String settings = getSettingsString();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + " ?autoReconnect=true&useSSL=false", username, password);
+            return DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + " " + settings, username, password);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             throw new SQLException("Could not get MySQL connection! Please check the database settings.");
         }
+    }
+
+    public String getSettingsString() {
+        return "?autoReconnect=" + isAutoReconnect() + "&useSSL=" + isUseSSL();
     }
 
     public String getDatabase() {
@@ -77,5 +84,21 @@ public class SQLConnector {
 
     public int getPort() {
         return port;
+    }
+
+    public boolean isAutoReconnect() {
+        return autoReconnect;
+    }
+
+    public void setAutoReconnect(boolean autoReconnect) {
+        this.autoReconnect = autoReconnect;
+    }
+
+    public boolean isUseSSL() {
+        return useSSL;
+    }
+
+    public void setUseSSL(boolean useSSL) {
+        this.useSSL = useSSL;
     }
 }
