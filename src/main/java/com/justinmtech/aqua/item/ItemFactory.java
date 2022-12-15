@@ -22,7 +22,6 @@ public class ItemFactory {
         return buildItem(material, 1, display, 0, null, null);
     }
 
-
     /**
      * @param material Bukkit Material or material String ID
      * @param amount Item amount
@@ -32,7 +31,6 @@ public class ItemFactory {
     public static ItemStack build(Object material, int amount, String display) {
         return buildItem(material, amount, display, 0, null, null);
     }
-
 
     /**
      * @param material Bukkit Material or material String ID
