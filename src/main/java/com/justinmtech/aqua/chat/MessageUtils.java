@@ -5,6 +5,7 @@ import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -33,8 +34,7 @@ public class MessageUtils {
     public static void sendCommandMessage(@NotNull Player player, @NotNull String message, @NotNull String command, @NotNull String hoverText) {
         TextComponent component = new TextComponent(message);
         component.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command));
-        //TODO Replace depreciated class
-        component.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(hoverText).create()));
+        component.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(hoverText)));
         player.spigot().sendMessage(component);
     }
 }
