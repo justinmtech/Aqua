@@ -11,16 +11,23 @@ import org.jetbrains.annotations.NotNull;
 public class SoundUtils {
 
     /**
+     * Play a sound for all online players.
      * @param sound Bukkit Sound
      * @param vol Volume of sound
      * @param pitch Pitch of sound
      */
-    //Play a sound for all online players
     public static void playForAll(@NotNull Sound sound, float vol, float pitch) {
         playSound(sound, vol, pitch, null);
     }
 
-    //Player a sound for all online players that have a permission
+
+    /**
+     * Play sound for all players who have a permission
+     * @param sound Bukkit Sound
+     * @param vol Volume of sound
+     * @param pitch Pitch of sound
+     * @param permission Trigger sound if player has this permission
+     */
     public static void playForAllWithPerm(@NotNull Sound sound, float vol, float pitch, String permission) {
         playSound(sound, vol, pitch, permission);
     }
