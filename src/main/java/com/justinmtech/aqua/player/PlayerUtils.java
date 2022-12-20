@@ -64,6 +64,11 @@ public class PlayerUtils {
         return nearbyPlayers;
     }
 
+    /**
+     * @param fromLocation The location to measure the distance from
+     * @param toLocation The place to teleport the players to if they are as closer or closer than the distance
+     * @param distance The distance from the fromLocation and the player the player must be to be teleported
+     */
     public static void teleportPlayers(@NotNull Location fromLocation, @NotNull Location toLocation, int distance) {
         List<PlayerComparable> players = getNearbyPlayers(fromLocation, distance);
         for (PlayerComparable p : players) {
