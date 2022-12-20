@@ -1,16 +1,13 @@
 package com.justinmtech.aqua.persistence;
 
-import com.justinmtech.aqua.item.ItemFactory;
 import org.jetbrains.annotations.Nullable;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Connect to MySQL database and store credentials.
+ *Store database credential information
  */
-public class SQLConnector {
+public class Credentials {
     private final String database;
     private final String host;
     private final String username;
@@ -25,11 +22,11 @@ public class SQLConnector {
      * @param port Port of SQL server
      * @throws SQLException Throw SQLException if encountered
      */
-    public SQLConnector(@Nullable String database,
-                        @Nullable String host,
-                        @Nullable String username,
-                        @Nullable String password,
-                        int port) throws SQLException {
+    public Credentials(@Nullable String database,
+                       @Nullable String host,
+                       @Nullable String username,
+                       @Nullable String password,
+                       int port) throws SQLException {
 
         if (database == null) throw new SQLException("The database is null.");
         if (host == null) throw new SQLException("The host is null.");
@@ -41,23 +38,6 @@ public class SQLConnector {
         this.username = username;
         this.password = password;
         this.port = port;
-        Connection connection = getMySQLConnection();
-        if (connection == null) throw new SQLException("Could not establish connection..");
-    }
-
-    /**
-     * Connect to MySQL through the DriverManager with autoReconnect set to true and SSL false.
-     * @return SQL Connection
-     * @throws SQLException Throw SQLException
-     */
-    public Connection getMySQLConnection() throws SQLException {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + " ?autoReconnect=true&useSSL=false", username, password);
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-            throw new SQLException("Could not get MySQL connection! Please check the database settings.");
-        }
     }
 
     public String getDatabase() {
@@ -79,4 +59,5 @@ public class SQLConnector {
     public int getPort() {
         return port;
     }
+
 }
