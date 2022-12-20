@@ -80,6 +80,9 @@ public class PlayerUtils {
         return nearbyPlayers;
     }
 
+    /**
+     * Used for comparing player distances
+     */
     private record PlayerComparable(UUID uuid, double distance) implements Comparable<PlayerComparable> {
 
         public UUID getUuid() {
