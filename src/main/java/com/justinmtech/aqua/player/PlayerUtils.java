@@ -64,6 +64,16 @@ public class PlayerUtils {
         return nearbyPlayers;
     }
 
+    public static void teleportPlayers(@NotNull Location fromLocation, @NotNull Location toLocation, int distance) {
+        List<PlayerComparable> players = getNearbyPlayers(fromLocation, distance);
+        for (PlayerComparable p : players) {
+            Player player = Bukkit.getPlayer(p.getUuid());
+            if (player != null) {
+                player.teleport(toLocation);
+            }
+        }
+    }
+
     /**
      * @param location The location to check from
      * @param distance The distance in blocks the player's location must be closer than or equal to
