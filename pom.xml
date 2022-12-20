@@ -10,32 +10,34 @@
     <packaging>jar</packaging>
 
     <name>Aqua</name>
-
     <description>A collection of Bukkit/Spigot utilities.</description>
+    <url>https://github.com/justinmtech/Aqua</url>
+
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <url>https://github.com/justinmtech/Aqua</url>
 
-    <developers>
-        <developer>
-            <name>justinmtech</name>
-            <email>git@justinmtech.com</email>
-            <url>https://github.com/justinmtech</url>
-        </developer>
-    </developers>
-
-    <scm>
-        <url>https://github.com/justinmtech/Aqua</url>
-        <connection>scm:git:git://github.com:justinmtech/Aqua.git</connection>
-        <developerConnection>scm:git:git@github.com:justinmtech/Aqua.git</developerConnection>
-    </scm>
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <issueManagement>
         <system>GitHub</system>
         <url>https://github.com/justinmtech/Aqua/issues</url>
     </issueManagement>
+
+    <developers>
+        <developer>
+            <name>Justin</name>
+            <email>contact@justinmtech.com</email>
+            <url>https://github.com/justinmtech</url>
+        </developer>
+    </developers>
 
     <build>
         <plugins>

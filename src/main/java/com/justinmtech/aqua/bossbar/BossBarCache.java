@@ -33,7 +33,6 @@ public class BossBarCache {
         initializeBossBar(plugin, uuid, bossBar, progress);
     }
 
-
     /**
      * Initialize bossbar with 100% progress
      * @param plugin Plugin instance
@@ -62,7 +61,6 @@ public class BossBarCache {
     public BossBar getBossBar(@NotNull UUID uuid) {
         return bossBars.get(uuid);
     }
-
 
     /**
      * Updates progress bar of a player's bossbar
