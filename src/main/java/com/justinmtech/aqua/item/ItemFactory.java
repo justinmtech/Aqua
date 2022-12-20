@@ -1,11 +1,13 @@
 package com.justinmtech.aqua.item;
 
+import com.justinmtech.aqua.chat.ColorUtils;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Build custom ItemStack with one-liners. Return AIR if there's an error or null object.
@@ -83,8 +85,12 @@ public class ItemFactory {
         item.setAmount(amount);
         ItemMeta im = item.getItemMeta();
         if (im == null) return new ItemStack(Material.BARRIER);
-        im.setDisplayName(display);
-        im.setLore(new ArrayList<>(Arrays.asList(lore)));
+        im.setDisplayName(ColorUtils.apply(display));
+        List<String> loreLines = new ArrayList<>();
+        for (String line : lore) {
+            loreLines.add(ColorUtils.apply(line));
+        }
+        im.setLore(loreLines);
         if (customModelData > 0) im.setCustomModelData(customModelData);
         item.setItemMeta(im);
         return item;
