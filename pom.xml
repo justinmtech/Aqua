@@ -6,7 +6,7 @@
 
     <groupId>com.justinmtech.aqua</groupId>
     <artifactId>Aqua</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
     <packaging>jar</packaging>
 
     <name>Aqua</name>
