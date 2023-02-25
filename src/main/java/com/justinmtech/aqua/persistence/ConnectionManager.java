@@ -27,7 +27,7 @@ public class ConnectionManager {
      * @param poolSize The size of the pool
      * @param dataSourceClassName The class name of the data source
      */
-    public ConnectionManager(@NotNull Credentials credentials, int poolSize, @NotNull String dataSourceClassName) {
+    public ConnectionManager(@NotNull Credentials credentials, int poolSize, @NotNull String dataSourceClassName) throws ClassNotFoundException {
         this.poolSize = poolSize;
         this.dataSourceClassName = dataSourceClassName;
         this.dataSource = initDataSource(credentials);
@@ -39,7 +39,6 @@ public class ConnectionManager {
      */
     private DataSource initDataSource(@NotNull Credentials credentials) {
         Properties properties = new Properties();
-        properties.setProperty("dataSourceClassName", getDataSourceClassName());
         properties.setProperty("dataSource.serverName", credentials.getHost());
         properties.setProperty("dataSource.portNumber", String.valueOf(credentials.getPort()));
         properties.setProperty("dataSource.user", credentials.getUsername());
@@ -48,6 +47,8 @@ public class ConnectionManager {
 
         HikariConfig config = new HikariConfig(properties);
         config.setMaximumPoolSize(getPoolSize());
+        config.setDriverClassName(getDataSourceClassName());
+        config.setJdbcUrl("jdbc:mysql://" + credentials.getHost() + ":" + credentials.getPort() + "/" + credentials.getDatabase() + "?autoReconnect=true&useSSL=false");
 
         return new HikariDataSource(config);
     }
