@@ -68,8 +68,9 @@ public class BossBarCache {
      * @param uuid Player ID
      * @param progress Progress (0-1.0)
      */
-    public void updateBossBar(@NotNull JavaPlugin plugin, @NotNull UUID uuid, float progress) {
+    public void updateBossBar(@NotNull JavaPlugin plugin, @NotNull UUID uuid, @NotNull String title, float progress) {
         bossBars.get(uuid).setProgress(progress);
+        bossBars.get(uuid).setTitle(title);
         timeout.replace(uuid, System.currentTimeMillis());
         Player player = Bukkit.getPlayer(uuid);
         if (player == null) return;
