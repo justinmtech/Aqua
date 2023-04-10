@@ -98,7 +98,14 @@ public class PlayerUtils {
     /**
      * Used for comparing player distances
      */
-    public record PlayerComparable(UUID uuid, double distance) implements Comparable<PlayerComparable> {
+    public static class PlayerComparable implements Comparable<PlayerComparable> {
+        private final UUID uuid;
+        private final double distance;
+
+        public PlayerComparable(UUID uuid, double distance) {
+            this.uuid = uuid;
+            this.distance = distance;
+        }
 
         public UUID getUuid() {
             return uuid;
